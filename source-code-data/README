@@ -1,0 +1,35 @@
+README
+
+Note: All the Codes need path to data as described below.
+
+The following is the organization of the folder:
+
+Codes/ <Contains all the codes/>
+1. CIR-NN.ipynb: 2 layer neural network on Cirrhosis Dataset. Pre-processed Data in: Normalized Species Abundance Dataset/
+2. IBD-NN.ipynb: 2 layer neural network on IBD Dataset. Pre-processed Data in: Normalized Species Abundance Dataset/
+3. Obesity-NN.ipynb: 2 layer neural network on Obesity Dataset. Pre-processed Data in: Normalized Species Abundance Dataset/
+4. CNN_dataread.py: Reads data and feeds to CNN. Pre-processed Data in: Fill-up images for CNN/
+5. CNN_model.py: Specifies CNN architecture
+6. CNN_plg.py: Creates the fillup-images for CNN and also generates dataset
+7. method1_binning_rdf_xgboost: Applies Random Decision Forests and xgboost on: Normalized species Abundances. Pre-processed Data in: Normalized Species Abundance Dataset/	
+8. method1_justNormalization_rdf_xgboost:Applies Random Decision Forests and xgboost on: Binned species AbundancesBinned species Abundances. Pre-processed Data in: Binned Species Abundance Dataset/
+9.Method3.ipynb:[part of this code has been copied from the original metaml tool] Selects top features from species abundances and combines them and then applies RDF. Feature importances have been precomputed and are present in: features/ 
+
+Fill-up images for CNN/: Contains Fill-up images fed to CNN
+Binned Species Abundance Dataset/: Contains binned species abundances as features
+Normalized Species Abundance Dataset/: Contains normalized species abundances as features
+features/: contains species abundance and strain-specific marker abundance features for t2d dataset in decreasing order of importance
+
+CAMIL under CAMIL/
+
+This code has been borrowed from the CAMIL paper and changes have been applied to try different classifiers.
+
+In order to use CAMIL. You need to install
+soapdenovo2 (https://github.com/aquaskyline/SOAPdenovo2)
+and UCLUST (http://www.drive5.com/uclust/downloads1_2_22q.html).
+
+Then you need to use CAMIL original pipeline to generate a vector mapping file. See CAMIL's README.
+Finally, when using CAMIL pipeline, use -renju as the option to use Renju's code, which will allow you to generate
+different results based on different classifiers for the datasets you use. In order to reproduce the results,
+you can use rdf.py file with options inside and a pre-trained data and test data. But you should be able to
+generate them properly from the raw data.
